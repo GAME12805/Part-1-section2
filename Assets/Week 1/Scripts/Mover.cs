@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    float speed = 3f;
+    public float speed = 3f;
     public GameObject missilePrefab;
     public Transform spawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +19,9 @@ public class Mover : MonoBehaviour
     {
         float direction = Input.GetAxis("Horizontal");
         transform.Translate(direction * speed * Time.deltaTime, 0, 0);
-
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(missilePrefab, spawn.position, spawn.rotation);
         }
-
-        
     }
 }
